@@ -17,6 +17,8 @@
 */
 -->
 
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources>
     <bool name="config_freeformWindowManagement">true</bool>
+    <!-- Disabling content capture service by setting an empty string here -->
+    <string name="config_defaultContentCaptureService" translatable="false"></string>
 </resources>
