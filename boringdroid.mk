@@ -5,7 +5,7 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 
 PRODUCT_PACKAGES := \
     BoringdroidSettingsApk \
-    BoringdroidSystemUIApk \
+    BoringdroidSystemUI \
 
 # rro overlay
 # PRODUCT_PACKAGES += \
