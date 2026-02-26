@@ -4,7 +4,7 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.sys.systemuiplugin.enabled=true
 
 PRODUCT_PACKAGES := \
-    BoringdroidSettingsApk \
+    BoringdroidSettings \
     BoringdroidSystemUI \
 
 # rro overlay
