@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright (C) 2021 The Android Open Source Project
+  ~ Copyright (C) 2021 The BoringDroid Project
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -15,8 +15,13 @@
   ~ limitations under the License
   -->
 <resources>
-    <!-- Whether to use the split 2-column notification shade -->
-    <bool name="config_use_split_notification_shade">false</bool>
-    <!-- See values-sw900dp-land/config.xml for explanation -->
+    <!-- Move all navigation buttons into ends_group so the BoringdroidSystemUI plugin can
+         insert the all-apps button (index 0) and app-state list (index 4) in the correct
+         positions to form a PC-like taskbar:
+           [all-apps | back | home | recent | running-apps | clock/status]
+         The plugin code assumes ends_group contains back(1), home(2), recent(3) at startup,
+         and inserts btAllAppsGroup at 0 and appStateLayout at 4.
+         Default sw900dp layout "back,home,left;space;right,recent" puts only right+recent in
+         ends_group (2 items), causing an IndexOutOfBoundsException at addView(..., index=4). -->
     <string name="config_navBarLayout" translatable="false">left;space;back,home,recent</string>
 </resources>
