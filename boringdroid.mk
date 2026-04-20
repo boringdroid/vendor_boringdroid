@@ -7,6 +7,7 @@ PRODUCT_PACKAGES := \
     BoringdroidSettings \
     BoringdroidSystemUI \
     BoringdroidWallpaperOverlay \
+    BoringdroidLauncher3Overlay \
 
 # rro overlay
 # PRODUCT_PACKAGES += \
