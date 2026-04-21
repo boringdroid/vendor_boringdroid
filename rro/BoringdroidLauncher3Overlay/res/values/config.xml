@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Override Launcher3QuickStep's `window_manager_proxy_class` so Launcher3 picks up the
+    default `WindowManagerProxy` (taskbarDrawnInProcess=false) instead of the subclass
+    `com.android.quickstep.util.SystemWindowManagerProxy` (taskbarDrawnInProcess=true).
+
+    The subclass's `normalizeWindowInsets` zeroes out the navigation-bar inset on tablets
+    under the assumption that Launcher3 will draw its own in-process Quickstep taskbar —
+    but boringdroid replaces that surface with the SystemUI plugin taskbar. The zeroed
+    inset lets Launcher3's hotseat icons render flush against (and under) the
+    BoringdroidTaskbar. Pointing this string at nothing makes `Overrides.getObject(...)`
+    fall back to the base `WindowManagerProxy`, which preserves the real nav-bar inset —
+    so the hotseat's `hotseatBarBottomSpacePx = mInsets.bottom + minQsbMargin` gets the
+    72dp TaskbarWindow advertises and the icons gain their visible breathing gap.
+
+    The value is intentionally empty (not the base-class FQN) because Launcher3's own
+    `res/values/config.xml` already defines this as "" when the `quickstep` source set
+    is not in use. We're simply restoring that default against the Launcher3QuickStep
+    build AOSP's `handheld_system_ext.mk` installs by default.
+-->
+<resources>
+    <string name="window_manager_proxy_class" translatable="false"></string>
+</resources>
