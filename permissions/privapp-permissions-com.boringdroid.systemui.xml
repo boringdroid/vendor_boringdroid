@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Privapp allowlist entry for BoringdroidSystemUI.
+
+    FORCE_STOP_PACKAGES is signature|privileged — privileged apps need an
+    explicit allowlist entry per /system/etc/permissions/privapp-permissions-*.xml
+    or the install fails with "Privileged permission … not in privapp-permissions
+    allowlist". This file ships under /product/etc/permissions/ via
+    vendor/boringdroid/boringdroid.mk, alongside the APK itself.
+
+    BoringdroidSystemUI joins SystemUI's shared UID
+    (`sharedUserId="android.uid.systemui"`) so the grant reaches the
+    SystemUI process at runtime — the plugin uses it to kick the home
+    launcher after attaching the taskbar window.
+-->
+<permissions>
+    <privapp-permissions package="com.boringdroid.systemui">
+        <!-- The Overview card click handler uses START_TASKS_FROM_RECENTS to launch the
+             tapped task. Already declared in BoringdroidSystemUI's manifest, but as a
+             privileged app the grant only goes through when listed here. -->
+        <permission name="android.permission.START_TASKS_FROM_RECENTS" />
+        <!-- SystemUIOverlay.refreshHomeLauncherForNewInsets uses FORCE_STOP_PACKAGES to
+             kick the home launcher after attaching the taskbar window. -->
+        <permission name="android.permission.FORCE_STOP_PACKAGES" />
+    </privapp-permissions>
+</permissions>
