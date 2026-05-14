@@ -6,6 +6,7 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 PRODUCT_PACKAGES := \
     BoringdroidSettings \
     BoringdroidSystemUI \
+    BoringdroidFrameworkOverlay \
     BoringdroidWallpaperOverlay \
     BoringdroidLauncher3Overlay \
 

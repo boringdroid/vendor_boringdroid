@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Boringdroid framework-res overrides.
+
+    freeform_decor_corner_radius is read by Task.updateFreeformCornerRadius
+    in services.core when persist.wm.debug.caption_on_shell=false, to clip the
+    freeform task SurfaceControl with rounded corners at composition (so the
+    cut-off corner area shows whatever is behind the window, not a flat fill).
+    When shell-side caption is enabled, WMShell's R.dimen.decor_corner_radius
+    in libs/WindowManager/Shell drives the same effect — keep the two values
+    in sync so both code paths look identical.
+-->
+<resources>
+    <dimen name="freeform_decor_corner_radius">8dp</dimen>
+</resources>
