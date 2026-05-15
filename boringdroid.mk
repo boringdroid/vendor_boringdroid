@@ -1,7 +1,8 @@
 # Recents
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.recents.grid=true \
-    persist.sys.systemuiplugin.enabled=true
+    persist.sys.systemuiplugin.enabled=true \
+    persist.boringdroid.peek_caption=true
 
 PRODUCT_PACKAGES := \
     BoringdroidSettings \
